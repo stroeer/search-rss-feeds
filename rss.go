@@ -46,28 +46,36 @@ type RssTextInput struct {
 }
 
 type RssFeed struct {
-	XMLName        xml.Name `xml:"channel"`
-	Title          string   `xml:"title"`       // required
-	Link           string   `xml:"link"`        // required
-	Description    string   `xml:"description"` // required
-	Language       string   `xml:"language,omitempty"`
-	Copyright      string   `xml:"copyright,omitempty"`
-	ManagingEditor string   `xml:"managingEditor,omitempty"` // Author used
-	WebMaster      string   `xml:"webMaster,omitempty"`
-	PubDate        string   `xml:"pubDate,omitempty"`       // created or updated
-	LastBuildDate  string   `xml:"lastBuildDate,omitempty"` // updated used
-	Category       string   `xml:"category,omitempty"`
-	Generator      string   `xml:"generator,omitempty"`
-	Docs           string   `xml:"docs,omitempty"`
-	Cloud          string   `xml:"cloud,omitempty"`
-	Ttl            int      `xml:"ttl,omitempty"`
-	Rating         string   `xml:"rating,omitempty"`
-	SkipHours      string   `xml:"skipHours,omitempty"`
-	SkipDays       string   `xml:"skipDays,omitempty"`
-	SelfLink       AtomLink `xml:"atom:link,omitempty"`
+	XMLName        xml.Name  `xml:"channel"`
+	Title          string    `xml:"title"`       // required
+	Link           string    `xml:"link"`        // required
+	Description    string    `xml:"description"` // required
+	Language       string    `xml:"language,omitempty"`
+	Copyright      string    `xml:"copyright,omitempty"`
+	ManagingEditor string    `xml:"managingEditor,omitempty"` // Author used
+	WebMaster      string    `xml:"webMaster,omitempty"`
+	PubDate        string    `xml:"pubDate,omitempty"`       // created or updated
+	LastBuildDate  string    `xml:"lastBuildDate,omitempty"` // updated used
+	Category       string    `xml:"category,omitempty"`
+	Generator      string    `xml:"generator,omitempty"`
+	Docs           string    `xml:"docs,omitempty"`
+	Cloud          string    `xml:"cloud,omitempty"`
+	Ttl            int       `xml:"ttl,omitempty"`
+	Rating         string    `xml:"rating,omitempty"`
+	SkipHours      string    `xml:"skipHours,omitempty"`
+	SkipDays       string    `xml:"skipDays,omitempty"`
+	SelfLink       *NamespacedAtomLink `xml:"atom:link,omitempty"`
 	Image          *RssImage
 	TextInput      *RssTextInput
 	Items          []*RssItem `xml:"item"`
+}
+
+type NamespacedAtomLink struct {
+	XMLName xml.Name `xml:"atom:link"`
+	Href    string   `xml:"href,attr"`
+	Rel     string   `xml:"rel,attr,omitempty"`
+	Type    string   `xml:"type,attr,omitempty"`
+	Length  string   `xml:"length,attr,omitempty"`
 }
 
 type RssItem struct {
