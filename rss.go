@@ -46,24 +46,24 @@ type RssTextInput struct {
 }
 
 type RssFeed struct {
-	XMLName        xml.Name            `xml:"channel"`
-	Title          string              `xml:"title"`       // required
-	Link           string              `xml:"link"`        // required
-	Description    string              `xml:"description"` // required
-	Language       string              `xml:"language,omitempty"`
-	Copyright      string              `xml:"copyright,omitempty"`
-	ManagingEditor string              `xml:"managingEditor,omitempty"` // Author used
-	WebMaster      string              `xml:"webMaster,omitempty"`
-	PubDate        string              `xml:"pubDate,omitempty"`       // created or updated
-	LastBuildDate  string              `xml:"lastBuildDate,omitempty"` // updated used
-	Category       string              `xml:"category,omitempty"`
-	Generator      string              `xml:"generator,omitempty"`
-	Docs           string              `xml:"docs,omitempty"`
-	Cloud          string              `xml:"cloud,omitempty"`
-	Ttl            int                 `xml:"ttl,omitempty"`
-	Rating         string              `xml:"rating,omitempty"`
-	SkipHours      string              `xml:"skipHours,omitempty"`
-	SkipDays       string              `xml:"skipDays,omitempty"`
+	XMLName        xml.Name  `xml:"channel"`
+	Title          string    `xml:"title"`       // required
+	Link           string    `xml:"link"`        // required
+	Description    string    `xml:"description"` // required
+	Language       string    `xml:"language,omitempty"`
+	Copyright      string    `xml:"copyright,omitempty"`
+	ManagingEditor string    `xml:"managingEditor,omitempty"` // Author used
+	WebMaster      string    `xml:"webMaster,omitempty"`
+	PubDate        string    `xml:"pubDate,omitempty"`       // created or updated
+	LastBuildDate  string    `xml:"lastBuildDate,omitempty"` // updated used
+	Category       string    `xml:"category,omitempty"`
+	Generator      string    `xml:"generator,omitempty"`
+	Docs           string    `xml:"docs,omitempty"`
+	Cloud          string    `xml:"cloud,omitempty"`
+	Ttl            int       `xml:"ttl,omitempty"`
+	Rating         string    `xml:"rating,omitempty"`
+	SkipHours      string    `xml:"skipHours,omitempty"`
+	SkipDays       string    `xml:"skipDays,omitempty"`
 	SelfLink       *NamespacedAtomLink `xml:"atom:link,omitempty"`
 	Image          *RssImage
 	TextInput      *RssTextInput
@@ -89,16 +89,15 @@ type RssItem struct {
 	Author           string   `xml:"author,omitempty"`
 	Category         []string `xml:"category,omitempty"`
 	//	MediaCategory []string `xml:"media:category,omitempty"` // TODO implement correctly
-	Comments        string        `xml:"comments,omitempty"`
-	MediaContent    *MediaContent `xml:"media:content,omitempty"`
-	Enclosure       *RssEnclosure
-	Guid            string          `xml:"guid,omitempty"` // Id used
-	GuidIsPermaLink bool            `xml:"guid>isPermaLink,attr,omitempty"`
-	PubDate         string          `xml:"pubDate,omitempty"` // created or updated
-	Source          string          `xml:"source,omitempty"`
-	Creator         string          `xml:"dc:creator,omitempty"`
-	MediaThumbnail  *MediaThumbnail `xml:"media:thumbnail,omitempty"`
-	MediaCopyright  string          `xml:"media:copyright,omitempty"`
+	Comments       string        `xml:"comments,omitempty"`
+	MediaContent   *MediaContent `xml:"media:content,omitempty"`
+	Enclosure      *RssEnclosure
+	Guid           string          `xml:"guid,omitempty"`    // Id used
+	PubDate        string          `xml:"pubDate,omitempty"` // created or updated
+	Source         string          `xml:"source,omitempty"`
+	Creator        string          `xml:"dc:creator,omitempty"`
+	MediaThumbnail *MediaThumbnail `xml:"media:thumbnail,omitempty"`
+	MediaCopyright string          `xml:"media:copyright,omitempty"`
 }
 
 type RssEnclosure struct {
