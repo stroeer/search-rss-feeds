@@ -19,6 +19,7 @@
             <guid isPermaLink="true">http://example.com/test/1540941720</guid>
             <dc:creator><![CDATA[John Smith]]></dc:creator>
             <pubDate>Tue, 30 Oct 2018 23:22:00 GMT</pubDate>
+            <category></category>
         </item>
         <item>
             <title><![CDATA[Lorem ipsum 2018-10-30T23:21:00+00:00]]></title>
@@ -27,6 +28,7 @@
             <guid isPermaLink="true">http://example.com/test/1540941660</guid>
             <dc:creator><![CDATA[John Smith]]></dc:creator>
             <pubDate>Tue, 30 Oct 2018 23:21:00 GMT</pubDate>
+            <category></category>
         </item>
         <item>
             <title><![CDATA[Lorem ipsum 2018-10-30T23:20:00+00:00]]></title>
@@ -35,6 +37,7 @@
             <guid isPermaLink="true">http://example.com/test/1540941600</guid>
             <dc:creator><![CDATA[John Smith]]></dc:creator>
             <pubDate>Tue, 30 Oct 2018 23:20:00 GMT</pubDate>
+            <category></category>
         </item>
         <item>
             <title><![CDATA[Lorem ipsum 2018-10-30T23:19:00+00:00]]></title>
@@ -43,6 +46,7 @@
             <guid isPermaLink="true">http://example.com/test/1540941540</guid>
             <dc:creator><![CDATA[John Smith]]></dc:creator>
             <pubDate>Tue, 30 Oct 2018 23:19:00 GMT</pubDate>
+            <category></category>
         </item>
         <item>
             <title><![CDATA[Lorem ipsum 2018-10-30T23:18:00+00:00]]></title>
@@ -51,6 +55,7 @@
             <guid isPermaLink="true">http://example.com/test/1540941480</guid>
             <dc:creator><![CDATA[John Smith]]></dc:creator>
             <pubDate>Tue, 30 Oct 2018 23:18:00 GMT</pubDate>
+            <category></category>
         </item>
         <item>
             <title><![CDATA[Lorem ipsum 2018-10-30T23:17:00+00:00]]></title>
@@ -59,6 +64,7 @@
             <guid isPermaLink="true">http://example.com/test/1540941420</guid>
             <dc:creator><![CDATA[John Smith]]></dc:creator>
             <pubDate>Tue, 30 Oct 2018 23:17:00 GMT</pubDate>
+            <category></category>
         </item>
         <item>
             <title><![CDATA[Lorem ipsum 2018-10-30T23:16:00+00:00]]></title>
@@ -67,6 +73,7 @@
             <guid isPermaLink="true">http://example.com/test/1540941360</guid>
             <dc:creator><![CDATA[John Smith]]></dc:creator>
             <pubDate>Tue, 30 Oct 2018 23:16:00 GMT</pubDate>
+            <category></category>
         </item>
         <item>
             <title><![CDATA[Lorem ipsum 2018-10-30T23:15:00+00:00]]></title>
@@ -75,6 +82,7 @@
             <guid isPermaLink="true">http://example.com/test/1540941300</guid>
             <dc:creator><![CDATA[John Smith]]></dc:creator>
             <pubDate>Tue, 30 Oct 2018 23:15:00 GMT</pubDate>
+            <category></category>
         </item>
         <item>
             <title><![CDATA[Lorem ipsum 2018-10-30T23:14:00+00:00]]></title>
@@ -83,6 +91,7 @@
             <guid isPermaLink="true">http://example.com/test/1540941240</guid>
             <dc:creator><![CDATA[John Smith]]></dc:creator>
             <pubDate>Tue, 30 Oct 2018 23:14:00 GMT</pubDate>
+            <category></category>
         </item>
         <item>
             <title><![CDATA[Lorem ipsum 2018-10-30T23:13:00+00:00]]></title>
@@ -91,6 +100,7 @@
             <guid isPermaLink="true">http://example.com/test/1540941180</guid>
             <dc:creator><![CDATA[John Smith]]></dc:creator>
             <pubDate>Tue, 30 Oct 2018 23:13:00 GMT</pubDate>
+            <category></category>
         </item>
     </channel>
 </rss>
