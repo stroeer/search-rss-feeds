@@ -1,6 +1,6 @@
 module github.com/stroeer/search-rss-feeds
 
-go 1.21
+go 1.24
 
 require github.com/kr/pretty v0.3.1
 

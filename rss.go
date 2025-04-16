@@ -92,12 +92,17 @@ type RssItem struct {
 	Comments       string        `xml:"comments,omitempty"`
 	MediaContent   *MediaContent `xml:"media:content,omitempty"`
 	Enclosure      *RssEnclosure
-	Guid           string          `xml:"guid,omitempty"`    // Id used
+	Guid           *RssGuid        `xml:"guid,omitempty"`    // Id used
 	PubDate        string          `xml:"pubDate,omitempty"` // created or updated
 	Source         string          `xml:"source,omitempty"`
 	Creator        string          `xml:"dc:creator,omitempty"`
 	MediaThumbnail *MediaThumbnail `xml:"media:thumbnail,omitempty"`
 	MediaCopyright string          `xml:"media:copyright,omitempty"`
+}
+
+type RssGuid struct {
+	Guid        string `xml:",chardata"`
+	IsPermalink bool   `xml:"isPermalink,attr"`
 }
 
 type RssEnclosure struct {
@@ -142,7 +147,7 @@ func newRssItem(i *Item) *RssItem {
 		Title:       i.Title,
 		Link:        i.Link.Href,
 		Description: i.Description,
-		Guid:        i.Id,
+		Guid:        &RssGuid{i.Id, false},
 		PubDate:     anyTimeFormat(time.RFC1123Z, i.Created, i.Updated),
 	}
 	if len(i.Content) > 0 {
@@ -213,4 +218,11 @@ func (r *RssFeed) FeedXml() interface{} {
 		MediaNamespace:      "http://search.yahoo.com/mrss/",
 		AtomNamespace:       "http://www.w3.org/2005/Atom",
 	}
+}
+
+func (g RssGuid) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	if g.Guid == "" {
+		return nil
+	}
+	return e.EncodeElement(g, start)
 }
