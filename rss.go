@@ -7,6 +7,7 @@ package feeds
 import (
 	"encoding/xml"
 	"fmt"
+	"strconv"
 	"time"
 )
 
@@ -224,5 +225,21 @@ func (g RssGuid) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	if g.Guid == "" {
 		return nil
 	}
-	return e.EncodeElement(g, start)
+
+	// send start element to token stream
+	start.Attr = []xml.Attr{{Name: xml.Name{Local: "isPermalink"}, Value: strconv.FormatBool(g.IsPermalink)}}
+	err := e.EncodeToken(start)
+	if err != nil {
+		return err
+	}
+
+	// add value data to token stream
+	data := xml.CharData([]byte(g.Guid))
+	err = e.EncodeToken(data)
+	if err != nil {
+		return err
+	}
+
+	// finish off with end element
+	return e.EncodeToken(xml.EndElement{Name: start.Name})
 }

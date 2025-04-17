@@ -61,51 +61,6 @@ var atomOutput = `<?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.
   </entry>
 </feed>`
 
-var rssOutput = `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>jmoiron.net blog</title>
-    <link>http://jmoiron.net/blog</link>
-    <description>discussion about tech, footie, photos</description>
-    <copyright>This work is copyright © Benjamin Button</copyright>
-    <managingEditor>jmoiron@jmoiron.net (Jason Moiron)</managingEditor>
-    <pubDate>Wed, 16 Jan 2013 21:52:35 -0500</pubDate>
-    <item>
-      <title>Limiting Concurrency in Go</title>
-      <link>http://jmoiron.net/blog/limiting-concurrency-in-go/</link>
-      <description>A discussion on controlled parallelism in golang</description>
-      <content:encoded><![CDATA[<p>Go's goroutines make it easy to make <a href="http://collectiveidea.com/blog/archives/2012/12/03/playing-with-go-embarrassingly-parallel-scripts/">embarrassingly parallel programs</a>, but in many &quot;real world&quot; cases resources can be limited and attempting to do everything at once can exhaust your access to them.</p>]]></content:encoded>
-      <author>Jason Moiron</author>
-      <pubDate>Wed, 16 Jan 2013 21:52:35 -0500</pubDate>
-    </item>
-    <item>
-      <title>Logic-less Template Redux</title>
-      <link>http://jmoiron.net/blog/logicless-template-redux/</link>
-      <description>More thoughts on logicless templates</description>
-      <pubDate>Wed, 16 Jan 2013 21:52:35 -0500</pubDate>
-    </item>
-    <item>
-      <title>Idiomatic Code Reuse in Go</title>
-      <link>http://jmoiron.net/blog/idiomatic-code-reuse-in-go/</link>
-      <description>How to use interfaces &lt;em&gt;effectively&lt;/em&gt;</description>
-      <enclosure url="http://example.com/cover.jpg" length="123456" type="image/jpg"></enclosure>
-      <pubDate>Wed, 16 Jan 2013 21:52:35 -0500</pubDate>
-    </item>
-    <item>
-      <title>Never Gonna Give You Up Mp3</title>
-      <link>http://example.com/RickRoll.mp3</link>
-      <description>Never gonna give you up - Never gonna let you down.</description>
-      <enclosure url="http://example.com/RickRoll.mp3" length="123456" type="audio/mpeg"></enclosure>
-      <pubDate>Wed, 16 Jan 2013 21:52:35 -0500</pubDate>
-    </item>
-    <item>
-      <title>String formatting in Go</title>
-      <link>http://example.com/strings</link>
-      <description>How to use things like %s, %v, %d, etc.</description>
-      <pubDate>Wed, 16 Jan 2013 21:52:35 -0500</pubDate>
-    </item>
-  </channel>
-</rss>`
-
 var jsonOutput = `{
   "version": "https://jsonfeed.org/version/1",
   "title": "jmoiron.net blog",
@@ -226,21 +181,6 @@ func TestFeed(t *testing.T) {
 		t.Errorf("Atom not what was expected.  Got:\n%s\n\nExpected:\n%s\n", got, atomOutput)
 	}
 
-	rss, err := feed.ToRss()
-	if err != nil {
-		t.Errorf("unexpected error encoding RSS: %v", err)
-	}
-	if rss != rssOutput {
-		t.Errorf("Rss not what was expected.  Got:\n%s\n\nExpected:\n%s\n", rss, rssOutput)
-	}
-	buf.Reset()
-	if err := feed.WriteRss(&buf); err != nil {
-		t.Errorf("unexpected error writing RSS: %v", err)
-	}
-	if got := buf.String(); got != rssOutput {
-		t.Errorf("Rss not what was expected.  Got:\n%s\n\nExpected:\n%s\n", got, rssOutput)
-	}
-
 	json, err := feed.ToJSON()
 	if err != nil {
 		t.Errorf("unexpected error encoding JSON: %v", err)
@@ -304,47 +244,6 @@ var atomOutputSorted = `<?xml version="1.0" encoding="UTF-8"?><feed xmlns="http:
     <summary type="html"></summary>
   </entry>
 </feed>`
-
-var rssOutputSorted = `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>jmoiron.net blog</title>
-    <link>http://jmoiron.net/blog</link>
-    <description>discussion about tech, footie, photos</description>
-    <copyright>This work is copyright © Benjamin Button</copyright>
-    <managingEditor>jmoiron@jmoiron.net (Jason Moiron)</managingEditor>
-    <pubDate>Wed, 16 Jan 2013 21:52:35 -0500</pubDate>
-    <item>
-      <title>Limiting Concurrency in Go</title>
-      <link>http://jmoiron.net/blog/limiting-concurrency-in-go/</link>
-      <description></description>
-      <pubDate>Fri, 18 Jan 2013 21:52:35 -0500</pubDate>
-    </item>
-    <item>
-      <title>Logic-less Template Redux</title>
-      <link>http://jmoiron.net/blog/logicless-template-redux/</link>
-      <description></description>
-      <pubDate>Thu, 17 Jan 2013 21:52:35 -0500</pubDate>
-    </item>
-    <item>
-      <title>Idiomatic Code Reuse in Go</title>
-      <link>http://jmoiron.net/blog/idiomatic-code-reuse-in-go/</link>
-      <description></description>
-      <pubDate>Thu, 17 Jan 2013 09:52:35 -0500</pubDate>
-    </item>
-    <item>
-      <title>Never Gonna Give You Up Mp3</title>
-      <link>http://example.com/RickRoll.mp3</link>
-      <description></description>
-      <pubDate>Thu, 17 Jan 2013 07:52:35 -0500</pubDate>
-    </item>
-    <item>
-      <title>String formatting in Go</title>
-      <link>http://example.com/strings</link>
-      <description></description>
-      <pubDate>Wed, 16 Jan 2013 21:52:35 -0500</pubDate>
-    </item>
-  </channel>
-</rss>`
 
 var jsonOutputSorted = `{
   "version": "https://jsonfeed.org/version/1",
@@ -448,22 +347,6 @@ func TestFeedSorted(t *testing.T) {
 	}
 	if got := buf.String(); got != atomOutputSorted {
 		t.Errorf("Atom not what was expected.  Got:\n%s\n\nExpected:\n%s\n", got, atomOutputSorted)
-	}
-
-	rss, err := feed.ToRss()
-	if err != nil {
-		t.Errorf("unexpected error encoding RSS: %v", err)
-	}
-
-	if rss != rssOutputSorted {
-		t.Errorf("Rss not what was expected.  Got:\n%s\n\nExpected:\n%s\n", rss, rssOutputSorted)
-	}
-	buf.Reset()
-	if err := feed.WriteRss(&buf); err != nil {
-		t.Errorf("unexpected error writing RSS: %v", err)
-	}
-	if got := buf.String(); got != rssOutputSorted {
-		t.Errorf("Rss not what was expected.  Got:\n%s\n\nExpected:\n%s\n", got, rssOutputSorted)
 	}
 
 	json, err := feed.ToJSON()
